@@ -1,7 +1,15 @@
-*{
+
+/* style UTILITY CLASS */
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+/* -------------------XX-----XX----------------- */
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -9,50 +17,54 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f4f8;
-  }
+    background-color: #f3f4f6;
+}
 
-.box{
-    background-color: #fff;
+.box {
+    background: linear-gradient(135deg, #fff, #e6f0fa);
     padding: 2rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     text-align: center;
-    width: 24vw;
-    border-radius: 10px;
-
+    width: 30vw;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.timer{
-    padding: 3px 5px;
-    font-size:x-large;
-    margin:2rem 0rem;
+
+.timer {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
-.btn button{
+.structure {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.structure button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffff;
     border: none;
-    border-radius: 6px;
-    padding: 1rem 2rem;
-    margin: 5px;
+    border-radius: 50%;
+    padding: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
     cursor: pointer;
-    font-size: medium;
+    background: green;
+    font-weight: 600;
     transition: all 0.1s ease;
 }
 
-.btn button:hover{
+
+
+.structure button:hover {
+    background-color: rgb(0, 136, 204);
     transform: scale(1.05);
-}
-
-
-.btn :first-child{
-    background: rgb(18, 179, 243);
-}
-
-.btn button:nth-child(2){
-    background:rgb(18, 179, 243);
-}
-
-.btn :last-child{
-    background: #f16065;
 }

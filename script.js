@@ -1,45 +1,53 @@
-
-console.log("working time-watch in javascript");
-
-// add UI to container class
-let container = document.getElementsByClassName("container")[0]
+console.log("time-watch is working javascript");
 
 
 
-// Access the button
-let startBtn = document.getElementsByClassName("btn")[0].getElementsByTagName("button")[0]
-let stopBtn = document.getElementsByClassName("btn")[0].getElementsByTagName("button")[1]
-let resetBtn = document.getElementsByClassName("btn")[0].getElementsByTagName("button")[2]
-
-
-
-// Button access by addEventListener
-let seconds = 0;
+let buttons = document.querySelectorAll(".structure button");
+let toggleBtn = buttons[0];
+let resetBtn = buttons[1];
+let timerDisplay = document.querySelector(".timer");
+let totalCenSec = 0;
 let timerId;
+let isRunning = false;
 
-function startTimer() {
-    timerId = setInterval(() => {
-        seconds++;
-        let hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-        let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-        let secs = String(seconds % 60).padStart(2, '0');
-        container.querySelector('.timer').innerHTML = `${hrs}:${mins}:${secs}`;
-    }, 1000);
+
+
+
+function toggleTimer() {
+
+    if (isRunning) {
+
+        clearInterval(timerId);
+        toggleBtn.innerText = "Start";
+
+    } else {
+
+        timerId = setInterval(() => {
+            totalCenSec++;
+            let mins = String(Math.floor(totalCenSec / 6000)).padStart(2, '0');
+            let secs = String(Math.floor((totalCenSec % 6000) / 100)).padStart(2, '0');
+            let cenSec = String(totalCenSec % 100).padStart(2, '0');
+            timerDisplay.innerHTML = `${mins}:${secs}:${cenSec}`;
+        }, 10);
+        toggleBtn.innerText = "Stop";
+    }
+    isRunning = !isRunning;
+    toggleBtn.style.backgroundColor = isRunning ? "gray" : "green";
 }
 
-function stopTimer() {
-    clearInterval(timerId);
-}
 
 function resetTimer() {
-    container.querySelector('.timer').innerHTML = "00:00:00";
-    seconds = 0;
-    stopTimer();
+    clearInterval(timerId);
+    isRunning = false;
+    toggleBtn.innerText = "Start";
+    totalCenSec = 0;
+    timerDisplay.innerText = "00:00:00";
+    toggleBtn.style.backgroundColor = "green"; // reset color
 }
 
 
-startBtn.addEventListener("click", startTimer)
-stopBtn.addEventListener("click",stopTimer)
+
+toggleBtn.addEventListener("click", toggleTimer)
 resetBtn.addEventListener("click", resetTimer)
 
 
