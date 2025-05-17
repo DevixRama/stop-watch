@@ -7,10 +7,12 @@
 }
 /* -------------------XX-----XX----------------- */
 
+
 * {
     margin: 0;
     padding: 0;
 }
+
 
 body {
     display: flex;
@@ -20,12 +22,13 @@ body {
     background-color: #f3f4f6;
 }
 
+
 .box {
     background: linear-gradient(135deg, #fff, #e6f0fa);
     padding: 2rem 3rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     text-align: center;
-    width: 30vw;
+    width: 250px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -39,12 +42,14 @@ body {
     letter-spacing: 2px;
 }
 
+
 .structure {
     display: flex;
     gap: 30px;
     justify-content: center;
     align-items: center;
 }
+
 
 .structure button {
     display: flex;
@@ -63,8 +68,12 @@ body {
 }
 
 
-
 .structure button:hover {
     background-color: rgb(0, 136, 204);
     transform: scale(1.05);
+}
+
+
+.running {
+  background-color: gray !important;
 }

@@ -32,7 +32,8 @@ function toggleTimer() {
         toggleBtn.innerText = "Stop";
     }
     isRunning = !isRunning;
-    toggleBtn.style.backgroundColor = isRunning ? "gray" : "green";
+    toggleBtn.classList.toggle("running", isRunning);
+
 }
 
 
@@ -42,7 +43,7 @@ function resetTimer() {
     toggleBtn.innerText = "Start";
     totalCenSec = 0;
     timerDisplay.innerText = "00:00:00";
-    toggleBtn.style.backgroundColor = "green"; // reset color
+    toggleBtn.classList.remove("running");
 }
 
 
